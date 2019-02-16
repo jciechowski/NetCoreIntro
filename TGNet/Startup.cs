@@ -31,6 +31,12 @@ namespace TGNet
             }
 
             app.UseMvc();
+            
+            app.Map("/ping",
+                middleware => middleware.Run(async context =>
+                {
+                    await context.Response.WriteAsync("Service is working.");
+                }));
         }
     }
 }
