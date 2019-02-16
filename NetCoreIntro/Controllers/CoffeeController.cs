@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using TGNet.Models;
+using NetCoreIntro.Models;
 
-namespace TGNet.Controllers
+namespace NetCoreIntro.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

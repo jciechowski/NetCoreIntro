@@ -1,4 +1,4 @@
-﻿namespace TGNet.Models
+﻿namespace NetCoreIntro.Models
 {
     public class CoffeeBean
     {

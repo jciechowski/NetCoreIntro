@@ -3,7 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 
-namespace TGNet
+namespace NetCoreIntro
 {
     public class ClientIdVerifier : IMiddleware
     {
@@ -21,8 +21,9 @@ namespace TGNet
         public async Task InvokeAsync(HttpContext context, RequestDelegate next)
         {
             var clientId = context.Request.Headers["ClientId"];
+            var isPingEndpoint = context.Request.Path.Value == "/ping";
 
-            if (_allowedClients.Any(allowedId => allowedId == clientId))
+            if (_allowedClients.Any(allowedId => allowedId == clientId) || isPingEndpoint)
             {
                 await next(context);
             }

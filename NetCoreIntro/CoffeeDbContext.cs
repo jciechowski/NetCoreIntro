@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TGNet.Models;
+using NetCoreIntro.Models;
 
-namespace TGNet
+namespace NetCoreIntro
 {
     public class CoffeeDBContext : DbContext
     {
