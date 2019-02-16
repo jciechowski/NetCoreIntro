@@ -22,6 +22,7 @@ namespace TGNet
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddDbContext<CoffeeDBContext>(context => context.UseInMemoryDatabase("CoffeeInMemoryDB"));
+            services.AddSingleton<ClientIdVerifier>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -32,6 +33,7 @@ namespace TGNet
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseMiddleware<ClientIdVerifier>();
             app.UseMvc();
             
             app.Map("/ping",
@@ -42,3 +44,4 @@ namespace TGNet
         }
     }
 }
+// test integracyjny sprawdzający middleware
