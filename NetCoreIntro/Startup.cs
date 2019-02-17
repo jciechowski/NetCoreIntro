@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
+
 namespace NetCoreIntro
 {
     public class Startup
@@ -20,8 +21,26 @@ namespace NetCoreIntro
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddDbContext<CoffeeDBContext>(context => context.UseInMemoryDatabase("CoffeeInMemoryDB"));
+
+            const string connectionString = "CoffeeInMemoryDB";
+            services.AddDbContext<CoffeeDBContext>(context => context.UseInMemoryDatabase(connectionString));
+
+            #region Custom health check
+
+            services.AddSingleton(s => new DbHealthCheck(connectionString));
+            services.AddHealthChecks().AddCheck<DbHealthCheck>(connectionString);
+
+            #endregion
+            #region Out of the box DB health check
+//            services.AddDbContext<CoffeeDBContext>(context => context.UseSqlServer("random"));
+//            services
+//                .AddHealthChecks()
+//                .AddDbContextCheck<CoffeeDBContext>();
+
+            #endregion
+
             services.AddSingleton<ClientIdVerifier>();
+            services.AddHostedService<CustomHostedService>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -33,7 +52,8 @@ namespace NetCoreIntro
 
             app.UseMiddleware<ClientIdVerifier>();
             app.UseMvc();
-            
+            app.UseHealthChecks("/health");
+
             app.Map("/ping",
                 middleware => middleware.Run(async context =>
                 {
