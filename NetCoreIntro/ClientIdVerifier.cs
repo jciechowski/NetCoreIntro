@@ -29,6 +29,7 @@ namespace NetCoreIntro
             }
             else
             {
+                context.Response.StatusCode = 403;
                 await context.Response.WriteAsync("Client not allowed.");
             }
         }

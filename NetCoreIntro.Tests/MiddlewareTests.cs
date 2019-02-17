@@ -37,7 +37,7 @@ namespace NetCoreIntro.Tests
             var response = await client.GetAsync("/api/coffee");
             var content = await response.Content.ReadAsStringAsync();
 
-            response.EnsureSuccessStatusCode();
+            response.StatusCode.Should().Be(403);
             content.Should().Contain("Client not allowed");
         }
 
