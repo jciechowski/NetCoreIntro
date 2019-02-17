@@ -40,6 +40,7 @@ namespace NetCoreIntro
             #endregion
 
             services.AddSingleton<ClientIdVerifier>();
+            services.AddSingleton<LocalStore>();
             services.AddHostedService<CustomHostedService>();
         }
 
