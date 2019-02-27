@@ -26,7 +26,7 @@ namespace NetCoreIntro.Tests
             client.DefaultRequestHeaders.Add("ClientId", "Microsoft");
 
             var postContent = new StringContent(
-                @"{'Country':'Kenya', 'Varietal':'SL28', 'Humidity':0.1}",
+                @"{'Country':'Kenya', 'Varietal':'SL28'}",
                 Encoding.UTF8,
                 "application/json");
 
