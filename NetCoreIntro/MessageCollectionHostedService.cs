@@ -19,7 +19,16 @@ namespace NetCoreIntro
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
+            _logger.LogInformation("Hosted service is listening.");
+
             _messageReceiver.Messages.CollectionChanged += DoWork;
+
+            return Task.CompletedTask;
+        }
+
+        public Task StopAsync(CancellationToken cancellationToken)
+        {
+            _messageReceiver.Messages.CollectionChanged -= DoWork;
 
             return Task.CompletedTask;
         }
@@ -27,15 +36,6 @@ namespace NetCoreIntro
         private void DoWork(object sender, NotifyCollectionChangedEventArgs e)
         {
             _logger.LogInformation("Did some important work!");
-        }
-
-        public Task StopAsync(CancellationToken cancellationToken)
-        {
-            _messageReceiver.Messages.CollectionChanged -= DoWork;
-
-            _logger.LogInformation("Bye bye");
-
-            return Task.CompletedTask;
         }
     }
 }
