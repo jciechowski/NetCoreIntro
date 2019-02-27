@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace NetCoreIntro
 {
@@ -9,10 +10,12 @@ namespace NetCoreIntro
     public class CoffeeController : ControllerBase
     {
         private readonly CoffeeDBContext _dbContext;
+        private readonly ILogger<CoffeeController> _logger;
 
-        public CoffeeController(CoffeeDBContext dbContext)
+        public CoffeeController(CoffeeDBContext dbContext, ILogger<CoffeeController> logger)
         {
             _dbContext = dbContext;
+            _logger = logger;
         }
         
         [HttpGet]
@@ -32,6 +35,8 @@ namespace NetCoreIntro
         {
             _dbContext.Add(coffeeBean);
             _dbContext.SaveChanges();
+
+            _logger.LogInformation("Item saved in db.");
         }
     }
 }
