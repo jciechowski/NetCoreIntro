@@ -1,11 +1,9 @@
 ﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-
 
 namespace NetCoreIntro
 {
@@ -32,7 +30,6 @@ namespace NetCoreIntro
 
             #endregion
             #region Out of the box DB health check
-//            services.AddDbContext<CoffeeDBContext>(context => context.UseSqlServer("random"));
 //            services
 //                .AddHealthChecks()
 //                .AddDbContextCheck<CoffeeDBContext>();
@@ -44,22 +41,23 @@ namespace NetCoreIntro
             services.AddHostedService<CustomHostedService>();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
-            app.UseMiddleware<ClientIdVerifier>();
-            app.UseMvc();
             app.UseHealthChecks("/health");
+
+            #region Middleware
 
             app.Map("/ping",
                 middleware => middleware.Run(async context =>
                 {
                     await context.Response.WriteAsync("Service is working.");
                 }));
+
+            app.UseMiddleware<ClientIdVerifier>();
+
+            app.UseMvc();
+
+            #endregion
         }
     }
 }

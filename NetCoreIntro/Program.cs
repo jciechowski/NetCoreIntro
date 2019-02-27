@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace NetCoreIntro
 {
@@ -12,6 +13,13 @@ namespace NetCoreIntro
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .ConfigureLogging((hostingContext, logging) =>
+                {
+                    logging.SetMinimumLevel(hostingContext.HostingEnvironment.IsProduction()
+                        ? LogLevel.Warning
+                        : LogLevel.Debug);
+                    logging.AddConsole();
+                })
                 .UseStartup<Startup>();
     }
 }
