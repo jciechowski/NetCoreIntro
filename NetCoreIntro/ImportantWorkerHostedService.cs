@@ -6,12 +6,12 @@ using Microsoft.Extensions.Logging;
 
 namespace NetCoreIntro
 {
-    public class CustomHostedService : IHostedService
+    public class ImportantWorkerHostedService : IHostedService
     {
         private readonly LocalStore _messageReceiver;
-        private readonly ILogger<CustomHostedService> _logger;
+        private readonly ILogger<ImportantWorkerHostedService> _logger;
 
-        public CustomHostedService(LocalStore messageReceiver, ILogger<CustomHostedService> logger)
+        public ImportantWorkerHostedService(LocalStore messageReceiver, ILogger<ImportantWorkerHostedService> logger)
         {
             _messageReceiver = messageReceiver;
             _logger = logger;

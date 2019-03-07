@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,7 +17,7 @@ namespace NetCoreIntro
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc();
 
             const string connectionString = "CoffeeInMemoryDB";
             services.AddDbContext<CoffeeDBContext>(context => context.UseInMemoryDatabase(connectionString));
@@ -30,6 +29,7 @@ namespace NetCoreIntro
 
             #endregion
             #region Out of the box DB health check
+
 //            services
 //                .AddHealthChecks()
 //                .AddDbContextCheck<CoffeeDBContext>();
@@ -38,7 +38,8 @@ namespace NetCoreIntro
 
             services.AddSingleton<ClientIdVerifier>();
             services.AddSingleton<LocalStore>();
-            services.AddHostedService<CustomHostedService>();
+
+            services.AddHostedService<ImportantWorkerHostedService>();
         }
 
         public void Configure(IApplicationBuilder app)
