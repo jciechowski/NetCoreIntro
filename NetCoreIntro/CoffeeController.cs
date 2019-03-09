@@ -36,7 +36,7 @@ namespace NetCoreIntro
             _dbContext.Add(coffeeBean);
             _dbContext.SaveChanges();
 
-            _logger.LogInformation("Item saved in db.");
+            _logger.LogCritical("Item saved in db.");
         }
     }
 }

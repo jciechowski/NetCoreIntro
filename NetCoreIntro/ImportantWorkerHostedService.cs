@@ -19,7 +19,7 @@ namespace NetCoreIntro
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
-            _logger.LogInformation("Hosted service is listening.");
+            _logger.LogCritical("Hosted service is listening.");
 
             _messageReceiver.Messages.CollectionChanged += DoWork;
 
@@ -35,7 +35,7 @@ namespace NetCoreIntro
 
         private void DoWork(object sender, NotifyCollectionChangedEventArgs e)
         {
-            _logger.LogInformation("Did some important work!");
+            _logger.LogCritical("Did some important work!");
         }
     }
 }
