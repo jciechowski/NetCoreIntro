@@ -53,7 +53,13 @@ namespace NetCoreIntro
         {
             app.UseHealthChecks("/health", new HealthCheckOptions
             {
-                ResponseWriter = WriteResponse
+                ResponseWriter = WriteResponse,
+                Predicate = url => url.Name.Contains("CoffeeDBContext")
+            });
+            app.UseHealthChecks("/dbhealth", new HealthCheckOptions
+            {
+                ResponseWriter = WriteResponse,
+                Predicate = url => url.Name.Contains("CoffeeInMemoryDB")
             });
 
             #region Middleware
