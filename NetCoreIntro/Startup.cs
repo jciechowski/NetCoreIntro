@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Newtonsoft.Json;
@@ -14,13 +13,6 @@ namespace NetCoreIntro
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
-
-        public IConfiguration Configuration { get; }
-
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
@@ -30,8 +22,8 @@ namespace NetCoreIntro
 
             #region Custom health check
 
-            services.AddSingleton(s => new DbHealthCheck(connectionString));
-            services.AddHealthChecks().AddCheck<DbHealthCheck>(connectionString);
+//            services.AddSingleton(s => new DbHealthCheck(connectionString));
+//            services.AddHealthChecks().AddCheck<DbHealthCheck>(connectionString);
 
             #endregion
 

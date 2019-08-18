@@ -13,8 +13,7 @@ namespace NetCoreIntro
         {
             _allowedClients = new List<string>
             {
-                "Microsoft",
-                "PGS"
+                "Microsoft"
             };
         }
 
@@ -24,7 +23,7 @@ namespace NetCoreIntro
             var isPingEndpoint = context.Request.Path.Value == "/ping";
             var isHealthCheck = context.Request.Path.Value == "/health";
 
-            if (_allowedClients.Any(allowedId => allowedId == clientId) || isPingEndpoint || isHealthCheck)
+            if (isPingEndpoint || isHealthCheck ||_allowedClients.Any(allowedId => allowedId == clientId))
             {
                 await next(context);
             }

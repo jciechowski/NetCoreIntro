@@ -2,15 +2,13 @@
 {
     public class CoffeeBean
     {
-        public CoffeeBean(long id, string country, string varietal)
+        public CoffeeBean(long id, string country)
         {
             Id = id;
             Country = country;
-            Varietal = varietal;
         }
 
-        public long Id { get; private set; }
-        public string Country { get; private set; }
-        public string Varietal { get; private set; }
+        public long Id { get; protected set; }
+        public string Country { get; protected set; }
     }
 }

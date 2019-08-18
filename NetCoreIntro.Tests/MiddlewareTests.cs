@@ -8,14 +8,14 @@ namespace NetCoreIntro.Tests
 {
     public class MiddlewareTests : IClassFixture<WebApplicationFactory<Startup>>
     {
+        private readonly WebApplicationFactory<Startup> _factory;
+        private readonly WebApplicationFactoryClientOptions _options;
+
         public MiddlewareTests(WebApplicationFactory<Startup> factory)
         {
             _factory = factory;
             _options = new WebApplicationFactoryClientOptions {BaseAddress = new Uri("http://localhost:5000")};
         }
-
-        private readonly WebApplicationFactory<Startup> _factory;
-        private readonly WebApplicationFactoryClientOptions _options;
 
         [Fact]
         public async Task ShouldCallPingWithoutClientId()
@@ -45,7 +45,7 @@ namespace NetCoreIntro.Tests
         public async Task ShouldReturnCorrectDataForCorrectClientId()
         {
             var client = _factory.CreateClient(_options);
-            client.DefaultRequestHeaders.Add("ClientId", "PGS");
+            client.DefaultRequestHeaders.Add("ClientId", "Aspire");
 
             var response = await client.GetAsync("/api/coffee");
             var content = await response.Content.ReadAsStringAsync();

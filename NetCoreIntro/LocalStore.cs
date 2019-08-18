@@ -4,7 +4,7 @@ namespace NetCoreIntro
 {
     public class LocalStore
     {
-        public ObservableCollection<string> Messages {get; set; }
+        public ObservableCollection<string> Messages {get; }
 
         public LocalStore()
         {
