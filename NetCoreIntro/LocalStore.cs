@@ -2,13 +2,8 @@
 
 namespace NetCoreIntro
 {
-    public class LocalStore
+    public static class LocalStore
     {
-        public ObservableCollection<string> Messages {get; }
-
-        public LocalStore()
-        {
-            Messages = new ObservableCollection<string>();
-        }
+        public static ObservableCollection<string> Messages {get; } = new ObservableCollection<string>();
     }
 }

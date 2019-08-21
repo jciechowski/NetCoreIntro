@@ -1,0 +1,233 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=B5217CCB71C9C14A99CFD90E5C6C086C/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=B5217CCB71C9C14A99CFD90E5C6C086C/Shortcut/@EntryValue">healthCheckAsync</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=B5217CCB71C9C14A99CFD90E5C6C086C/Text/@EntryValue">public Task&lt;HealthCheckResult&gt; CheckHealthAsync(HealthCheckContext context,&#xD;
+            CancellationToken cancellationToken = new CancellationToken())&#xD;
+        {&#xD;
+            try&#xD;
+            {&#xD;
+                using (var connection = new SqlConnection(_connectionString))&#xD;
+                {&#xD;
+                    connection.Open();&#xD;
+                }&#xD;
+            }&#xD;
+            catch (SqlException)&#xD;
+            {&#xD;
+                return Task.FromResult(HealthCheckResult.Unhealthy());&#xD;
+            }&#xD;
+&#xD;
+            return Task.FromResult(HealthCheckResult.Healthy());&#xD;
+        }</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=B5217CCB71C9C14A99CFD90E5C6C086C/Reformat/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=B5217CCB71C9C14A99CFD90E5C6C086C/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=B5217CCB71C9C14A99CFD90E5C6C086C/Applicability/=Live/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=B5217CCB71C9C14A99CFD90E5C6C086C/Scope/=C3001E7C0DA78E4487072B7E050D86C5/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=B5217CCB71C9C14A99CFD90E5C6C086C/Scope/=C3001E7C0DA78E4487072B7E050D86C5/Type/@EntryValue">InCSharpFile</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=B5217CCB71C9C14A99CFD90E5C6C086C/Scope/=C3001E7C0DA78E4487072B7E050D86C5/CustomProperties/=minimumLanguageVersion/@EntryIndexedValue">2.0</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A51616E0A1EBA74AAF25D71233164404/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A51616E0A1EBA74AAF25D71233164404/Shortcut/@EntryValue">healthCheckBuiltIn</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A51616E0A1EBA74AAF25D71233164404/Text/@EntryValue">services.AddHealthChecks().AddDbContextCheck&lt;CoffeeDBContext&gt;();</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A51616E0A1EBA74AAF25D71233164404/Reformat/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A51616E0A1EBA74AAF25D71233164404/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A51616E0A1EBA74AAF25D71233164404/Applicability/=Live/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A51616E0A1EBA74AAF25D71233164404/Scope/=C3001E7C0DA78E4487072B7E050D86C5/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A51616E0A1EBA74AAF25D71233164404/Scope/=C3001E7C0DA78E4487072B7E050D86C5/Type/@EntryValue">InCSharpFile</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A51616E0A1EBA74AAF25D71233164404/Scope/=C3001E7C0DA78E4487072B7E050D86C5/CustomProperties/=minimumLanguageVersion/@EntryIndexedValue">2.0</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=59284A8EFCFE0448A8FB8FD9A4C62463/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=59284A8EFCFE0448A8FB8FD9A4C62463/Shortcut/@EntryValue">healthCheckCustom</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=59284A8EFCFE0448A8FB8FD9A4C62463/Text/@EntryValue">  services.AddSingleton(s =&gt; new DbHealthCheck(connectionString));&#xD;
+  services.AddHealthChecks().AddCheck&lt;DbHealthCheck&gt;(connectionString);</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=59284A8EFCFE0448A8FB8FD9A4C62463/Reformat/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=59284A8EFCFE0448A8FB8FD9A4C62463/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=59284A8EFCFE0448A8FB8FD9A4C62463/Applicability/=Live/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=59284A8EFCFE0448A8FB8FD9A4C62463/Scope/=C3001E7C0DA78E4487072B7E050D86C5/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=59284A8EFCFE0448A8FB8FD9A4C62463/Scope/=C3001E7C0DA78E4487072B7E050D86C5/Type/@EntryValue">InCSharpFile</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=59284A8EFCFE0448A8FB8FD9A4C62463/Scope/=C3001E7C0DA78E4487072B7E050D86C5/CustomProperties/=minimumLanguageVersion/@EntryIndexedValue">2.0</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=50ADB9ED54AD5F4BBBE060D6C3E060D9/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=50ADB9ED54AD5F4BBBE060D6C3E060D9/Shortcut/@EntryValue">healthChecksUse</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=50ADB9ED54AD5F4BBBE060D6C3E060D9/Text/@EntryValue">app.UseHealthChecks("/health", new HealthCheckOptions&#xD;
+            {&#xD;
+                ResponseWriter = WriteResponse&#xD;
+            });</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=50ADB9ED54AD5F4BBBE060D6C3E060D9/Reformat/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=50ADB9ED54AD5F4BBBE060D6C3E060D9/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=50ADB9ED54AD5F4BBBE060D6C3E060D9/Applicability/=Live/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=50ADB9ED54AD5F4BBBE060D6C3E060D9/Scope/=C3001E7C0DA78E4487072B7E050D86C5/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=50ADB9ED54AD5F4BBBE060D6C3E060D9/Scope/=C3001E7C0DA78E4487072B7E050D86C5/Type/@EntryValue">InCSharpFile</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=50ADB9ED54AD5F4BBBE060D6C3E060D9/Scope/=C3001E7C0DA78E4487072B7E050D86C5/CustomProperties/=minimumLanguageVersion/@EntryIndexedValue">2.0</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=C7277FFD3A1CA549A527A663BC49A854/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=C7277FFD3A1CA549A527A663BC49A854/Shortcut/@EntryValue">hostedServiceCtor</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=C7277FFD3A1CA549A527A663BC49A854/Text/@EntryValue">        private readonly ILogger&lt;ImportantWorkerHostedService&gt; _logger;&#xD;
+&#xD;
+        public ImportantWorkerHostedService(ILogger&lt;ImportantWorkerHostedService&gt; logger)&#xD;
+        {&#xD;
+            _logger = logger;&#xD;
+        }</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=C7277FFD3A1CA549A527A663BC49A854/Reformat/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=C7277FFD3A1CA549A527A663BC49A854/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=C7277FFD3A1CA549A527A663BC49A854/Applicability/=Live/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=C7277FFD3A1CA549A527A663BC49A854/Scope/=C3001E7C0DA78E4487072B7E050D86C5/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=C7277FFD3A1CA549A527A663BC49A854/Scope/=C3001E7C0DA78E4487072B7E050D86C5/Type/@EntryValue">InCSharpFile</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=C7277FFD3A1CA549A527A663BC49A854/Scope/=C3001E7C0DA78E4487072B7E050D86C5/CustomProperties/=minimumLanguageVersion/@EntryIndexedValue">2.0</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=7E3737439A44CD45A154935FF01CF1DC/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=7E3737439A44CD45A154935FF01CF1DC/Shortcut/@EntryValue">hostedServiceDoWork</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=7E3737439A44CD45A154935FF01CF1DC/Text/@EntryValue">   private void DoWork(object sender, NotifyCollectionChangedEventArgs e)&#xD;
+        {&#xD;
+            _logger.LogCritical("Did some important work!");&#xD;
+        }</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=7E3737439A44CD45A154935FF01CF1DC/Reformat/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=7E3737439A44CD45A154935FF01CF1DC/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=7E3737439A44CD45A154935FF01CF1DC/Applicability/=Live/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=7E3737439A44CD45A154935FF01CF1DC/Scope/=C3001E7C0DA78E4487072B7E050D86C5/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=7E3737439A44CD45A154935FF01CF1DC/Scope/=C3001E7C0DA78E4487072B7E050D86C5/Type/@EntryValue">InCSharpFile</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=7E3737439A44CD45A154935FF01CF1DC/Scope/=C3001E7C0DA78E4487072B7E050D86C5/CustomProperties/=minimumLanguageVersion/@EntryIndexedValue">2.0</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=7B3E7F5371EE2C41B8623519D0E3F1A8/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=7B3E7F5371EE2C41B8623519D0E3F1A8/Shortcut/@EntryValue">hostedServiceStart</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=7B3E7F5371EE2C41B8623519D0E3F1A8/Text/@EntryValue"> public Task StartAsync(CancellationToken cancellationToken)&#xD;
+        {&#xD;
+            _logger.LogCritical("Hosted service is listening.");&#xD;
+&#xD;
+            LocalStore.Messages.CollectionChanged += DoWork;&#xD;
+&#xD;
+            return Task.CompletedTask;&#xD;
+        }</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=7B3E7F5371EE2C41B8623519D0E3F1A8/Reformat/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=7B3E7F5371EE2C41B8623519D0E3F1A8/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=7B3E7F5371EE2C41B8623519D0E3F1A8/Applicability/=Live/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=7B3E7F5371EE2C41B8623519D0E3F1A8/Scope/=C3001E7C0DA78E4487072B7E050D86C5/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=7B3E7F5371EE2C41B8623519D0E3F1A8/Scope/=C3001E7C0DA78E4487072B7E050D86C5/Type/@EntryValue">InCSharpFile</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=7B3E7F5371EE2C41B8623519D0E3F1A8/Scope/=C3001E7C0DA78E4487072B7E050D86C5/CustomProperties/=minimumLanguageVersion/@EntryIndexedValue">2.0</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A1D2B386CFCBF5478E68B65E5077CF2A/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A1D2B386CFCBF5478E68B65E5077CF2A/Shortcut/@EntryValue">hostedServiceStop</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A1D2B386CFCBF5478E68B65E5077CF2A/Text/@EntryValue"> public Task StopAsync(CancellationToken cancellationToken)&#xD;
+        {&#xD;
+            LocalStore.Messages.CollectionChanged -= DoWork;&#xD;
+&#xD;
+            return Task.CompletedTask;&#xD;
+        }</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A1D2B386CFCBF5478E68B65E5077CF2A/Reformat/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A1D2B386CFCBF5478E68B65E5077CF2A/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A1D2B386CFCBF5478E68B65E5077CF2A/Applicability/=Live/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A1D2B386CFCBF5478E68B65E5077CF2A/Scope/=C3001E7C0DA78E4487072B7E050D86C5/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A1D2B386CFCBF5478E68B65E5077CF2A/Scope/=C3001E7C0DA78E4487072B7E050D86C5/Type/@EntryValue">InCSharpFile</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A1D2B386CFCBF5478E68B65E5077CF2A/Scope/=C3001E7C0DA78E4487072B7E050D86C5/CustomProperties/=minimumLanguageVersion/@EntryIndexedValue">2.0</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A80F023E6940C0458A1B768230E0AD5F/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A80F023E6940C0458A1B768230E0AD5F/Shortcut/@EntryValue">middlewareClientIdUse</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A80F023E6940C0458A1B768230E0AD5F/Text/@EntryValue">            app.UseMiddleware&lt;ClientIdVerifier&gt;();&#xD;
+</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A80F023E6940C0458A1B768230E0AD5F/Reformat/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A80F023E6940C0458A1B768230E0AD5F/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A80F023E6940C0458A1B768230E0AD5F/Applicability/=Live/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A80F023E6940C0458A1B768230E0AD5F/Scope/=C3001E7C0DA78E4487072B7E050D86C5/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A80F023E6940C0458A1B768230E0AD5F/Scope/=C3001E7C0DA78E4487072B7E050D86C5/Type/@EntryValue">InCSharpFile</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A80F023E6940C0458A1B768230E0AD5F/Scope/=C3001E7C0DA78E4487072B7E050D86C5/CustomProperties/=minimumLanguageVersion/@EntryIndexedValue">2.0</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=6E18E26EB03DBA48A7114F31B843378B/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=6E18E26EB03DBA48A7114F31B843378B/Shortcut/@EntryValue">middlewareImp</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=6E18E26EB03DBA48A7114F31B843378B/Text/@EntryValue"> public async Task InvokeAsync(HttpContext context, RequestDelegate next)&#xD;
+        {&#xD;
+            var clientId = context.Request.Headers["ClientId"];&#xD;
+            var isPingEndpoint = context.Request.Path.Value == "/ping";&#xD;
+            var isHealthCheck = context.Request.Path.Value == "/health";&#xD;
+&#xD;
+            if (isPingEndpoint || isHealthCheck ||_allowedClients.Any(allowedId =&gt; allowedId == clientId))&#xD;
+            {&#xD;
+                await next(context);&#xD;
+            }&#xD;
+            else&#xD;
+            {&#xD;
+                context.Response.StatusCode = 403;&#xD;
+                await context.Response.WriteAsync("Client not allowed.");&#xD;
+            }&#xD;
+        }</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=6E18E26EB03DBA48A7114F31B843378B/Reformat/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=6E18E26EB03DBA48A7114F31B843378B/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=6E18E26EB03DBA48A7114F31B843378B/Applicability/=Live/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=6E18E26EB03DBA48A7114F31B843378B/Scope/=C3001E7C0DA78E4487072B7E050D86C5/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=6E18E26EB03DBA48A7114F31B843378B/Scope/=C3001E7C0DA78E4487072B7E050D86C5/Type/@EntryValue">InCSharpFile</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=6E18E26EB03DBA48A7114F31B843378B/Scope/=C3001E7C0DA78E4487072B7E050D86C5/CustomProperties/=minimumLanguageVersion/@EntryIndexedValue">2.0</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A00175B6F26F3F41AA0C90295A28B221/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A00175B6F26F3F41AA0C90295A28B221/Shortcut/@EntryValue">middlewarePing</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A00175B6F26F3F41AA0C90295A28B221/Text/@EntryValue">            app.Map("/ping",&#xD;
+                middleware =&gt; middleware.Run(async context =&gt;&#xD;
+                {&#xD;
+                    await context.Response.WriteAsync("Service is working.");&#xD;
+                }));</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A00175B6F26F3F41AA0C90295A28B221/Reformat/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A00175B6F26F3F41AA0C90295A28B221/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A00175B6F26F3F41AA0C90295A28B221/Applicability/=Live/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A00175B6F26F3F41AA0C90295A28B221/Scope/=C3001E7C0DA78E4487072B7E050D86C5/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A00175B6F26F3F41AA0C90295A28B221/Scope/=C3001E7C0DA78E4487072B7E050D86C5/Type/@EntryValue">InCSharpFile</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=A00175B6F26F3F41AA0C90295A28B221/Scope/=C3001E7C0DA78E4487072B7E050D86C5/CustomProperties/=minimumLanguageVersion/@EntryIndexedValue">2.0</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=621B539AD369BD4DBEE394029C5BE15E/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=621B539AD369BD4DBEE394029C5BE15E/Shortcut/@EntryValue">testClientIdCorrect</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=621B539AD369BD4DBEE394029C5BE15E/Text/@EntryValue">   [Fact]&#xD;
+        public async Task ShouldReturnCorrectDataForCorrectClientId()&#xD;
+        {&#xD;
+            var client = _factory.CreateClient(_options);&#xD;
+            client.DefaultRequestHeaders.Add("ClientId", "Aspire");&#xD;
+&#xD;
+            var response = await client.GetAsync("/api/coffee");&#xD;
+            var content = await response.Content.ReadAsStringAsync();&#xD;
+&#xD;
+            response.EnsureSuccessStatusCode();&#xD;
+            content.Should().Be("[]");&#xD;
+        }</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=621B539AD369BD4DBEE394029C5BE15E/Reformat/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=621B539AD369BD4DBEE394029C5BE15E/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=621B539AD369BD4DBEE394029C5BE15E/Applicability/=Live/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=621B539AD369BD4DBEE394029C5BE15E/Scope/=C3001E7C0DA78E4487072B7E050D86C5/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=621B539AD369BD4DBEE394029C5BE15E/Scope/=C3001E7C0DA78E4487072B7E050D86C5/Type/@EntryValue">InCSharpFile</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=621B539AD369BD4DBEE394029C5BE15E/Scope/=C3001E7C0DA78E4487072B7E050D86C5/CustomProperties/=minimumLanguageVersion/@EntryIndexedValue">2.0</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=FD6D0B04DABF4248B190D8F5CCD0E2D9/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=FD6D0B04DABF4248B190D8F5CCD0E2D9/Shortcut/@EntryValue">testClientIdMissing</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=FD6D0B04DABF4248B190D8F5CCD0E2D9/Text/@EntryValue"> [Fact]&#xD;
+        public async Task ShouldNotReturnDataForWrongClientId()&#xD;
+        {&#xD;
+            var client = _factory.CreateClient(_options);&#xD;
+&#xD;
+            var response = await client.GetAsync("/api/coffee");&#xD;
+            var content = await response.Content.ReadAsStringAsync();&#xD;
+&#xD;
+            response.StatusCode.Should().Be(403);&#xD;
+            content.Should().Contain("Client not allowed");&#xD;
+        }</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=FD6D0B04DABF4248B190D8F5CCD0E2D9/Reformat/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=FD6D0B04DABF4248B190D8F5CCD0E2D9/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=FD6D0B04DABF4248B190D8F5CCD0E2D9/Applicability/=Live/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=FD6D0B04DABF4248B190D8F5CCD0E2D9/Scope/=C3001E7C0DA78E4487072B7E050D86C5/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=FD6D0B04DABF4248B190D8F5CCD0E2D9/Scope/=C3001E7C0DA78E4487072B7E050D86C5/Type/@EntryValue">InCSharpFile</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=FD6D0B04DABF4248B190D8F5CCD0E2D9/Scope/=C3001E7C0DA78E4487072B7E050D86C5/CustomProperties/=minimumLanguageVersion/@EntryIndexedValue">2.0</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2BD5878B42691241AA84A98497B1181A/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2BD5878B42691241AA84A98497B1181A/Shortcut/@EntryValue">testPing</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2BD5878B42691241AA84A98497B1181A/Text/@EntryValue">[Fact]&#xD;
+        public async Task ShouldCallPingWithoutClientId()&#xD;
+        {&#xD;
+            var client = _factory.CreateClient(_options);&#xD;
+&#xD;
+            var response = await client.GetAsync("/ping");&#xD;
+            var content = await response.Content.ReadAsStringAsync();&#xD;
+&#xD;
+            response.EnsureSuccessStatusCode();&#xD;
+            content.Should().Contain("Service is working");&#xD;
+        }</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2BD5878B42691241AA84A98497B1181A/Reformat/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2BD5878B42691241AA84A98497B1181A/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2BD5878B42691241AA84A98497B1181A/Applicability/=Live/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2BD5878B42691241AA84A98497B1181A/Scope/=C3001E7C0DA78E4487072B7E050D86C5/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2BD5878B42691241AA84A98497B1181A/Scope/=C3001E7C0DA78E4487072B7E050D86C5/Type/@EntryValue">InCSharpFile</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2BD5878B42691241AA84A98497B1181A/Scope/=C3001E7C0DA78E4487072B7E050D86C5/CustomProperties/=minimumLanguageVersion/@EntryIndexedValue">2.0</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=33CB171D74134940BB66220859BDB690/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=33CB171D74134940BB66220859BDB690/Shortcut/@EntryValue">testWebApplicationFactoryCtor</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=33CB171D74134940BB66220859BDB690/Text/@EntryValue">private readonly WebApplicationFactory&lt;Startup&gt; _factory;&#xD;
+private readonly WebApplicationFactoryClientOptions _options = new WebApplicationFactoryClientOptions {BaseAddress = new Uri("http://localhost:5000")};&#xD;
+&#xD;
+public MiddlewareTests(WebApplicationFactory&lt;Startup&gt; factory)&#xD;
+{&#xD;
+	_factory = factory;&#xD;
+}</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=33CB171D74134940BB66220859BDB690/Reformat/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=33CB171D74134940BB66220859BDB690/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=33CB171D74134940BB66220859BDB690/Applicability/=Live/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=33CB171D74134940BB66220859BDB690/Scope/=C3001E7C0DA78E4487072B7E050D86C5/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=33CB171D74134940BB66220859BDB690/Scope/=C3001E7C0DA78E4487072B7E050D86C5/Type/@EntryValue">InCSharpFile</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=33CB171D74134940BB66220859BDB690/Scope/=C3001E7C0DA78E4487072B7E050D86C5/CustomProperties/=minimumLanguageVersion/@EntryIndexedValue">2.0</s:String></wpf:ResourceDictionary>

@@ -19,48 +19,11 @@ namespace NetCoreIntro
 
             const string connectionString = "CoffeeInMemoryDB";
             services.AddDbContext<CoffeeDBContext>(context => context.UseInMemoryDatabase(connectionString));
-
-            #region Custom health check
-
-//            services.AddSingleton(s => new DbHealthCheck(connectionString));
-//            services.AddHealthChecks().AddCheck<DbHealthCheck>(connectionString);
-
-            #endregion
-
-            #region Out of the box DB health check
-
-            services
-                .AddHealthChecks()
-                .AddDbContextCheck<CoffeeDBContext>();
-
-            #endregion
-
-            services.AddSingleton<ClientIdVerifier>();
-            services.AddSingleton<LocalStore>();
-
-            services.AddHostedService<ImportantWorkerHostedService>();
         }
 
         public void Configure(IApplicationBuilder app)
         {
-            app.UseHealthChecks("/health", new HealthCheckOptions
-            {
-                ResponseWriter = WriteResponse
-            });
-
-            #region Middleware
-
-            app.Map("/ping",
-                middleware => middleware.Run(async context =>
-                {
-                    await context.Response.WriteAsync("Service is working.");
-                }));
-
-            app.UseMiddleware<ClientIdVerifier>();
-
             app.UseMvc();
-
-            #endregion
         }
 
         private static Task WriteResponse(HttpContext httpContext,
